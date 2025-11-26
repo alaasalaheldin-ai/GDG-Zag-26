@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>document HTML</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Form Inputs</legend>
+      <form action="mm.html" method="post">
+        <div>
+          <label for="username"> Name :</label>
+          <input type="text" id="username" placeholder="your full name" name="username"/>
+        </div>
+        <br />
+        <div>
+          <label for="pass"> password :</label>
+          <input type="password" id="pass" placeholder="your full name" name="userpassword" required /><br />
+        </div>
+        <br />
+        <div>
+          <label for="useremail"> email :</label>
+          <input type="email" id="useremail" placeholder="your full name" required
+          /><br />
+        </div>
+        <br />
+        <div>
+          <p>select your fav color :</p>
+          <label for="color"> favourite color</label>
+          <input type="color" id="color" /> <br /><br />
+        </div>
+        <div>
+          <label for="range"> Volume Range </label>
+          <input type="range" id="range" /> <br /><br />
+        </div>
+        <div>
+          <p>select your fav pet :</p>
+          <input type="radio" id="dog" value="dog" name="favpet" />
+          <label for="dog">Dog</label>
+          <input type="radio" id="cat" value="cat" name="favpet" />
+          <label for="cat">Cat</label><br /><br />
+        </div>
+        <div>
+          <p>select your country :</p>
+          <label for="country"></label>
+          <select id="country" name="country" required>
+            <option value="egypt">Egypt</option>
+            <option value="uae">UAE</option>
+            <option value="usa">USA</option>
+
+            <br /><br />
+          </select>
+        </div>
+        <div>
+          <p>choose your interests :</p>
+          <input type="checkbox" id="check1" name="interest" value="coding" />
+          <label for="check1">Coding</label>
+          <input type="checkbox" id="check2" name="interest" value="Reading" />
+          <label for="check2">Reading</label>
+          <input type="checkbox" id="check3" name="interest" value="Music" />
+          <label for="check3">Music</label>
+        </div>
+        <br />
+        <div>
+          <label for="comment"> write comment</label>
+          <textarea
+            name="comment"
+            id="comment"
+            placeholder="write here"
+          ></textarea>
+        </div>
+        <br />
+        <div>
+          <label for="file"> upload file </label>
+          <input type="file" id="file" />
+        </div>
+        <br />
+        <div>
+          <label for="search"> Search This Site </label>
+          <input type="search" id="search" />
+        </div>
+        <br />
+        <div>
+          <label for="url"> Your Website URL </label>
+          <input type="url" id="url" />
+        </div>
+        <br />
+        <div>
+          <label for="date">Date</label>
+          <input type="date" id="date" />
+        </div>
+        <br />
+        <div>
+          <label for="month">month</label>
+          <input type="month" id="date" />
+        </div>
+        <br />
+        <div>
+          <label for="time">Time</label>
+          <input type="time" id="date" />
+        </div>
+        <br />
+        <div>
+          <p>Choose a Browser (with suggestions)</p>
+          <input list="browser" name="browser" />
+          <datalist id="browser">
+            <option value="Brave"></option>
+            <option value="safari"></option>
+            <option value="firefox"></option>
+            <option value="chrome"></option>
+          </datalist>
+        </div>
+        <br />
+        <input type="reset" />
+        <input type="submit" value="save" />
+      </form>
+    </fieldset>
+  </body>
+</html>

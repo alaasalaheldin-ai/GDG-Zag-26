@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder ="enter city name"
+            spellcheck="false" id="city">
+            <button onclick="getWeather()" > <img src="images/search.png" alt=""></button>
+        </div>
+        <div class="weather">
+            <img src="images/rain.png" class="weather-icon">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New york</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png" >
+                <div>
+                    <p class="humidity">50%</p>
+                    <p>Humidity</p>
+                </div>
+                </div>
+                <div class="col">
+                    <img src="images/wind.png" >
+                <div>
+                    <p class="wind">15km/h</p>
+                    <p>Wind speed</p>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    <script>
+        function getWeather(){
+    let city = document.getElementById("city").value;
+    const weatherIcon = document.querySelector(".weather-icon");
+
+    fetch(`https://wttr.in/${city}?format=j1`)
+    .then(res => res.json())
+    .then(data => {
+
+        let temp = data.current_condition[0].temp_C;
+        let humidity = data.current_condition[0].humidity;
+        let wind = data.current_condition[0].windspeedKmph;
+
+        let desc = data.current_condition[0].weatherDesc[0].value.toLowerCase();
+
+        document.querySelector(".temp").innerHTML = temp + "°C";
+        document.querySelector(".city").innerHTML = city;
+        document.querySelector(".humidity").innerHTML = humidity + "%";
+        document.querySelector(".wind").innerHTML = wind + " km/h";
+
+        if(desc.includes("cloud")){
+            weatherIcon.src = "images/clouds.png";
+        }
+        else if(desc.includes("sun") || desc.includes("clear")){
+            weatherIcon.src = "images/clear.png";
+        }       
+        else if(desc.includes("rain")){
+            weatherIcon.src = "images/rain.png";
+        }
+        else if(desc.includes("drizzle")){
+            weatherIcon.src = "images/drizzle.png";
+        }
+        else if(desc.includes("mist") || desc.includes("fog")){
+            weatherIcon.src = "images/mist.png";
+        }
+    })
+    .catch(() => {
+        alert("City not found");
+    });
+}
+    </script>
+</body>
+</html>
